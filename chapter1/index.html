@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue.js App</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div id="app">
+    <h1>Vue.js</h1>
+    <h2>テキストのバインディング</h2>
+    <p>message:{{message}}</p>
+    <p>messageNum:{{messageNum}}</p>
+    <h2>フォーム入力との同期</h2>
+    <input type="text" v-model.number="message">
+    <input type="number" v-model.number="messageNum">
+    <h2>繰り返しの描画</h2>
+    <ul>
+      <li v-for="item in flutes">{{item}}</li>
+    </ul>
+    <h2>イベントの利用</h2>
+    <button v-on:click="handleClick">Click</button>
+    <h2>条件分岐</h2>
+    <p v-if="show">Hello Vue True</p>
+    <button v-on:click="show=!show">切り替え</button>
+    <h2>トランジション・アニメーション</h2>
+    <transition>
+      <p v-if="show">Transition</p>
+    </transition>
+    <pre>{{$data}}</pre>
+    <p>{{count}}回クリックしました</p>
+    <button v-on:click="increment">increase</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
