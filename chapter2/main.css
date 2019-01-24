@@ -1,0 +1,13 @@
+.v-enter-active,.v-leave-active{
+  transition: opacity 1s;
+}
+.v-enter, .v-leave-to{
+  opacity: 0;
+}
+.child{
+  font-family: 'Courier New', Courier, monospace;
+}
+.is-active{
+  font-weight: bold;
+  font-size: 2rem;
+}

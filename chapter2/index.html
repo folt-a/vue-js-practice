@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue.js App</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div id="app">
+    <h1>Vue.js</h1>
+    <h2>Data</h2>
+    <pre>{{$data}}</pre>
+    <h2>クリックでプロパティをインクリメントする</h2>
+    <p>{{count}}回クリックしました</p>
+    <button v-on:click="increment">increase</button>
+    <h2>クラスとスタイルのデータバインディング</h2>
+    <p v-bind:class="{child: isChild,'is-active': isActive}">Text</p>
+    <p v-bind:style="{color: textColor, backgroundColor:bgColor}">Text</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
