@@ -45,17 +45,24 @@ let app = new Vue({
 
     // リスト
     list: [
-      { id: 1, name: 'Slime', hp: 100 },
-      { id: 2, name: 'Goblin', hp: 200 },
-      { id: 3, name: 'Dragon', hp: 300 }
+      // jsonから読み込みした
+      // { id: 1, name: 'Slime', hp: 100 },
+      // { id: 2, name: 'Goblin', hp: 200 },
+      // { id: 3, name: 'Dragon', hp: 300 }
     ],
     name: '',
-    hp: '',
-    chID: ''
+    hp: ''
 
   },
   // computed：算出プロパティ
   // created：ライフサイクルフックの一つ
+  created: function () {
+    axios.get('list.json').then(function (response) {
+      this.list = response.data;
+    }.bind(this)).catch(function (e) {
+      console.error(e);
+    })
+  },
   // methods：アプリケーションで使用するメソッド
   methods: {
     increment: function () {
@@ -75,14 +82,10 @@ let app = new Vue({
       console.log(index);
       this.list[index].name = this.name;
       this.list[index].hp = this.hp;
-    },
-
-    created: function () {
-      axios.get('list.json').then(function (response) {
-        this.list = response.data;
-      }.bind(this)).catch(function (e) {
-        console.error(e);
-      })
     }
-  }
+  },
+  mounted() {
+    console.log(this.$el);
+    console.log(this.$refs.reference);
+  },
 })

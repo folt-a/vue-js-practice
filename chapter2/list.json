@@ -1,5 +1,17 @@
 [
-    { "id": 1, "name": "Slimel", "hp": 100 },
-    { "id": 2, "name": "Goblinl", "hp": 200 },
-    { "id": 3, "name": "Dragonl", "hp": 300 }
-  ]
+    {
+        "id": 1,
+        "name": "Slime",
+        "hp": 100
+    },
+    {
+        "id": 2,
+        "name": "Goblin",
+        "hp": 200
+    },
+    {
+        "id": 3,
+        "name": "Dragon",
+        "hp": 300
+    }
+]

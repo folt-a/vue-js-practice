@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js App</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>Vue.js テンプレート制御ディレクティブ</h1>
+        <section>
+            <h2>Data</h2>
+            <pre>{{$data}}</pre>
+        </section>
+        <section>
+            <h2>v-pre</h2>
+            <p>
+                <a v-bind:href="url" v-pre>
+                    Hello {{message}}
+                </a>
+            </p>
+            <p>内側のHTMLのコンパイルをしない。</p>
+        </section>
+        <section>
+            <p>
+                <h2>v-once</h2>
+                <a v-bind:href="url" v-once>
+                    Hello {{message}}
+                </a>
+            </p>
+            <p>初回のみテンプレートを評価し、それ以降は静的なコンテンツとして扱う</p>
+        </section>
+        <section>
+            <h2>v-text</h2>
+            <p><span v-text="message"></span></p>
+            <p>要素内のテキストコンテンツが単一のMustacheならv-textのバインドと同一になる。</p>
+        </section>
+        <section>
+            <h2>v-html</h2>
+            <p><span v-html="messageHTML"></span></p>
+            <p>htmlを含む文字をエスケープせずに描画するように表示する</p>
+        </section>
+        <section>
+            <h2>v-cloak</h2>
+            <p v-cloak>{{$data}}</p>
+            <p>インスタンスの準備が終わると取り除かれる属性を付与する</p>
+            <p>v-cloakにdisplay:none;などのCSSを付与することでコンパイル前のテンプレート（{{}}とか）が表示されるのを防いだりできる</p>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="vue-directives.js"></script>
+</body>
+
+</html>
