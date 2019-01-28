@@ -1,0 +1,33 @@
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 1s;
+}
+
+.v-enter,
+.v-leave-to {
+    opacity: 0;
+}
+
+.child {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.active {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+section {
+    margin-bottom: 5px;
+    background-color: rgb(234, 243, 233);
+    border-bottom: 2px solid rgb(87, 196, 92);
+    border-right: 3px solid rgb(87, 196, 92);
+}
+
+section > :not(h2){
+  margin-left: 20px;
+}
+
+[v-cloak]{
+  display: none;
+}

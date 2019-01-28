@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue.js App</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div id="app">
+    <h1>Vue.js イベントハンドリング</h1>
+    <section>
+      <h2>Data</h2>
+      <pre>{{$data}}</pre>
+    </section>
+    <section>
+      <h2>v-on = @</h2>
+      <button v-on:click="clickHandle">Click</button>
+      <button @click="clickHandle">Click</button>
+      <p>v-on: は @ と省略できる</p>
+    </section>
+    <section>
+      <h2>インラインメソッドハンドラ</h2>
+      <button @click="count++">count++</button><span>count:{{count}}</span>
+      <p>値に式を埋め込める（けど、長くなると見通し悪くなる＋各場所が散らばるかな～）</p>
+      <p>引数eventは$eventで使える </p>
+    </section>
+    <section>
+      <h2>使用できるイベント</h2>
+      <p>ブラウザのJavascriptがサポートしていれば使える</p>
+      <p><a href="https://developer.mozilla.org/ja/docs/Web/Events" target="_blank">MDNイベント一覧</a></p>
+    </section>
+    <section>
+      <h2>フォーム</h2>
+      <input v-bind:value="message" v-on:input="inputHandle">
+      <p>v-modelで良いが入力後に処理を差し込む必要がある場合などはinputのv-onのメソッドで差し込める！</p>
+    </section>
+    <section>
+      <h2>イベント修飾子</h2>
+      <p>いっぱいある　<a href="https://jp.vuejs.org/v2/guide/events.html#%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E4%BF%AE%E9%A3%BE%E5%AD%90">イベント修飾子</a></p>
+      <p>バブリング：同じイベントのDOMがネストしている場合、子→親→その親→・・・ の順で連鎖するぞ .stopでとめたりできる</p>
+    </section>
+    <section>
+      <h2>キー修飾子</h2>
+      <input @keydown.enter="keydownHandle"> Enter
+      <p>特定のキーのみ拾える コード番号かエイリアスで指定する</p>
+    </section>
+    <section>
+      <h2>システム修飾子</h2>
+      <button @click.shift="doDelete">Delete</button> Shift
+      <p>対応するキーを押される場合のみハンドラが飛び出される</p>
+    </section>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
